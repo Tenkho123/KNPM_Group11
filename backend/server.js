@@ -47,6 +47,24 @@ app.post("/posts", (req, res) => {
     res.json(newPost)
 })
 
+// UPDATE
+app.put("/posts/:id", (req, res) => {
+    const db = readDB()
+    const id = req.params.id
+    const newTitle = req.body.title
+
+    const post = db.posts.find(p => p.id == id)
+
+    if (!post) {
+        return res.status(404).json({ error: "Post not found" })
+    }
+
+    post.title = newTitle
+    writeDB(db)
+
+    res.json(post)
+})
+
 // DELETE
 app.delete("/posts/:id", (req, res) => {
     const db = readDB()
