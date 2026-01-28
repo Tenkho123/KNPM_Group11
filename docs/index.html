@@ -21,7 +21,7 @@
 
         // API when running on your local machine with node.js
         // const API = "http://localhost:3000"
-        const API = "https://testknpm-crud-web.onrender.com"
+        const API = "http://localhost:3000"
 
         async function loadPosts() {
             const res = await fetch(`${API}/posts`) // Get flow data from server (response object)
@@ -33,9 +33,10 @@
             posts.forEach(p => {
                 const li = document.createElement("li")
                 li.innerHTML = `
-                    ${p.title}
-                    <button onclick="deletePost(${p.id})">X</button>
-                    `
+                ${p.title}
+                <button onclick="editPost(${p.id}, '${p.title}')">Edit</button>
+                <button onclick="deletePost(${p.id})">X</button>
+                `
                 list.appendChild(li)
             })
         }
@@ -60,7 +61,21 @@
             loadPosts()
         }
 
+        async function editPost(id, oldTitle) {
+            const newTitle = prompt("Edit title:", oldTitle)
+            if (!newTitle) return
+
+            await fetch(`${API}/posts/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ title: newTitle })
+            })
+
+            loadPosts()
+        }
+
         loadPosts()
+        setInterval(loadPosts, 3000)
     </script>
 </body>
 
