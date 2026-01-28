@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Simple CRUD</h2>
+
+    <input id="title" placeholder="New post" />
+    <button onclick="createPost()">Add</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        /*
+            | Method | Meaning         |
+            | ------ | --------------- |
+            | GET    | read data       |
+            | POST   | create new data |
+            | PUT    | update          |
+            | DELETE | delete          |
+        */
+
+        // API when running on your local machine with node.js
+        // const API = "http://localhost:3000"
+        const API = "http://localhost:3000"
+
+        async function loadPosts() {
+            const res = await fetch(`${API}/posts`) // Get flow data from server (response object)
+            const posts = await res.json() // Reads the response body then parse into json (must wait, cause it take time)
+
+            const list = document.getElementById("list")
+            list.innerHTML = "" // Clear to avoid duplication
+
+            posts.forEach(p => {
+                const li = document.createElement("li")
+                li.innerHTML = `
+                    ${p.title}
+                    <button onclick="deletePost(${p.id})">X</button>
+                    `
+                list.appendChild(li)
+            })
+        }
+
+        async function createPost() {
+            // Get content in the input field
+            const title = document.getElementById("title").value
+            
+            // Browser, please send a message to my backend server
+            await fetch(`${API}/posts`, // Hey server, I want to communicate
+            {
+                method: "POST", // Method explained at line 14
+                headers: { "Content-Type": "application/json" }, // I'm sending you JSON data, not text, not form, not random bytes
+                body: JSON.stringify({ title }) // Here is the data I'm sending you
+            })
+
+            loadPosts()
+        }
+
+        async function deletePost(id) {
+            await fetch(`${API}/posts/${id}`, { method: "DELETE" })
+            loadPosts()
+        }
+
+        loadPosts()
+    </script>
+</body>
+
+</html>
