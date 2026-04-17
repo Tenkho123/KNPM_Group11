@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản - Trọ Sinh Viên Huế</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/auth.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+    <section class="container header-container">
+        
+        <div id="header-placeholder"></div>
+
+        <section class="container">
+            <div class="auth-wrapper" style="min-height: 80vh;">
+                <div class="auth-box">
+                    <h2 class="auth-title">Đăng Ký Tài Khoản</h2>
+                    <p class="auth-subtitle">Tham gia cộng đồng Trọ Sinh Viên Huế ngay hôm nay</p>
+
+                    <form id="registerForm" action="#" method="POST">
+                        <div class="input-group">
+                            <label for="fullname">Họ và tên <span style="color: red;">*</span></label>
+                            <div class="input-icon">
+                                <i class="fa-solid fa-signature"></i>
+                                <input type="text" id="fullname" placeholder="Nhập họ và tên của bạn" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email">Email <span style="color: red;">*</span></label>
+                            <div class="input-icon">
+                                <i class="fa-regular fa-envelope"></i>
+                                <input type="email" id="email" placeholder="Ví dụ: name@gmail.com" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="password">Mật khẩu <span style="color: red;">*</span></label>
+                            <div class="input-icon">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="password" placeholder="Tối thiểu 6 ký tự" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="confirm-password">Xác nhận mật khẩu <span style="color: red;">*</span></label>
+                            <div class="input-icon">
+                                <i class="fa-solid fa-shield-check"></i>
+                                <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-auth">ĐĂNG KÝ NGAY</button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Đã có tài khoản? <a href="login.html">Đăng nhập tại đây</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+/* --- ROOMS.CSS: TRANG DANH SÁCH PHÒNG --- */
+
+/* 1. THANH TÌM KIẾM VÀ LỌC */
+.search-filter-wrap {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.filter-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Cho phép rớt dòng trên màn hình nhỏ */
+}
+
+.filter-group {
+    flex: 1; /* Chia đều không gian */
+    min-width: 200px;
+    position: relative;
+}
+
+.keyword-search i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+}
+
+.keyword-search input, .select-filter select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.keyword-search input {
+    padding-left: 40px; /* Chừa chỗ cho icon kính lúp */
+}
+
+.keyword-search input:focus, .select-filter select:focus {
+    border-color: #3498db;
+}
+
+.btn-search {
+    padding: 12px 25px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: #c0392b;
+}
+
+/* 2. LƯỚI HIỂN THỊ PHÒNG TRỌ */
+.room-list-wrap {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-left: 5px solid #3498db;
+    padding-left: 15px;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Tự động xuống dòng, tối thiểu 280px 1 cột */
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.room-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.room-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 15px;
+}
+
+.room-title {
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    height: 44px; /* Giới hạn 2 dòng */
+    overflow: hidden;
+}
+
+.room-address {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.room-address i {
+    color: #e74c3c;
+    margin-right: 5px;
+}
+
+.room-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.room-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* 3. PHÂN TRANG */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.page-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    color: #2c3e50;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.page-link:hover, .page-link.active {
+    background-color: #3498db;
+    color: #fff;
+    border-color: #3498db;
+}
+
+/* --- FORMAT THANH LỌC MỚI --- */
+.filter-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* --- CUSTOM DROPDOWN CHO TIỆN ÍCH --- */
+.custom-dropdown {
+    position: relative; /* Để menu xổ xuống được neo vào đây */
+    min-width: 200px;
+}
+
+.dropdown-header {
+    background-color: #fff;
+    border: 1px solid #bdc3c7;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+    transition: border-color 0.3s ease;
+}
+
+.dropdown-header:hover {
+    border-color: #3498db;
+}
+
+.dropdown-header span i {
+    margin-right: 8px;
+    color: #95a5a6;
+}
+
+.dropdown-content {
+    display: none; /* Ẩn đi theo mặc định */
+    position: absolute;
+    top: 110%; /* Nằm ngay dưới nút bấm */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 100; /* Đè lên các phòng trọ bên dưới */
+    max-height: 250px;
+    overflow-y: auto; /* Có thanh cuộn nếu tiện ích quá dài */
+    padding: 10px 0;
+}
+
+/* Class 'show' được thêm bằng JS để hiển thị dropdown */
+.dropdown-content.show {
+    display: block; 
+}
+
+.dropdown-content label {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content label:hover {
+    background-color: #f1f3f5;
+}
+
+.dropdown-content input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    accent-color: #3498db;
+    cursor: pointer;
+}

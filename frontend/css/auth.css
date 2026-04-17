@@ -1,0 +1,164 @@
+/* --- AUTH.CSS: GIAO DIỆN ĐĂNG NHẬP / ĐĂNG KÝ --- */
+
+/* Căn giữa toàn bộ khu vực auth trên màn hình */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh; /* Chiếm 65% chiều cao màn hình để cân đối với Header */
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* Khối hộp màu trắng chứa form */
+.auth-box {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.auth-title {
+    text-align: center;
+    font-size: 26px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Các trường nhập liệu */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 8px;
+}
+
+/* Thiết kế khung input có chứa icon */
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 15px;
+    color: #95a5a6;
+    font-size: 16px;
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 12px 15px 12px 40px; /* Chừa khoảng trống bên trái cho icon */
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-icon input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Tuỳ chọn Ghi nhớ và Quên mật khẩu */
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #555;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #e74c3c;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+/* Nút Đăng nhập */
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-auth:hover {
+    background-color: #2980b9;
+}
+
+/* Phần chuyển sang Đăng ký */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #555;
+}
+
+.auth-footer a {
+    color: #3498db;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style cho phần chọn Vai trò (Radio buttons) */
+.role-selection {
+    display: flex;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.role-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #555;
+}
+
+.role-item input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #3498db; /* Màu của dấu tích tròn */
+}

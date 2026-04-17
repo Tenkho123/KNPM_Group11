@@ -2,14 +2,43 @@
 <html>
 
 <body>
-    <h2>Simple CRUD</h2>
+    <nav>
+        <button onclick="showPage('home-page')">Trang chủ</button>
+        <button onclick="showPage('about-page')">About Us</button>
+        <button onclick="showPage('contact-page')">Liên hệ</button>
+    </nav>
 
-    <input id="title" placeholder="New post" />
-    <button onclick="createPost()">Add</button>
+    <hr> <section id="home-page">
+        <h2>Trọ Sinh Viên</h2>
+        <input id="title" placeholder="New post" />
+        <button onclick="createPost()">Add</button>
+        <ul id="list"></ul>
+    </section>
 
-    <ul id="list"></ul>
+    <section id="about-page" style="display: none;">
+        <h2>About Us</h2>
+        <p>Chào mừng bạn đến với trang Trọ Sinh Viên! Chúng tôi giúp sinh viên tìm phòng trọ dễ dàng hơn.</p>
+    </section>
+
+    <section id="contact-page" style="display: none;">
+        <h2>Liên hệ</h2>
+        <p>Email: hotro@trosinhvien.com</p>
+        <p>Số điện thoại: 0123 456 789</p>
+    </section>
 
     <script>
+        // --- NAVIGATION LOGIC ---
+        function showPage(pageId) {
+            // 1. Hide all pages first
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('about-page').style.display = 'none';
+            document.getElementById('contact-page').style.display = 'none';
+
+            // 2. Show only the page the user clicked on
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // --- EXISTING CRUD LOGIC ---
         /*
             | Method | Meaning         |
             | ------ | --------------- |
@@ -19,16 +48,14 @@
             | DELETE | delete          |
         */
 
-        // API when running on your local machine with node.js
-        // const API = "http://localhost:3000"
         const API = "https://testknpm-crud-web.onrender.com"
 
         async function loadPosts() {
-            const res = await fetch(`${API}/posts`) // Get flow data from server (response object)
-            const posts = await res.json() // Reads the response body then parse into json (must wait, cause it take time)
+            const res = await fetch(`${API}/posts`)
+            const posts = await res.json()
 
             const list = document.getElementById("list")
-            list.innerHTML = "" // Clear to avoid duplication
+            list.innerHTML = "" 
 
             posts.forEach(p => {
                 const li = document.createElement("li")
@@ -42,15 +69,12 @@
         }
 
         async function createPost() {
-            // Get content in the input field
             const title = document.getElementById("title").value
             
-            // Browser, please send a message to my backend server
-            await fetch(`${API}/posts`, // Hey server, I want to communicate
-            {
-                method: "POST", // Method explained at line 14
-                headers: { "Content-Type": "application/json" }, // I'm sending you JSON data, not text, not form, not random bytes
-                body: JSON.stringify({ title }) // Here is the data I'm sending you
+            await fetch(`${API}/posts`, {
+                method: "POST", 
+                headers: { "Content-Type": "application/json" }, 
+                body: JSON.stringify({ title }) 
             })
 
             loadPosts()

@@ -1,0 +1,74 @@
+/* --- HEADER FORMATTING --- */
+.header-wrap {
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Khoảng cách giữa Logo và Hotline */
+}
+
+.logo img {
+    height: 50px;
+    object-fit: contain;
+}
+
+.hotline {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e74c3c; /* Màu đỏ nổi bật cho Hotline */
+}
+
+.header-top-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.header-top-menu li a {
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.header-top-menu li a:hover {
+    color: #3498db; /* Đổi màu khi di chuột */
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e5e5e5; /* Đường kẻ mỏng tinh tế */
+    margin: 5px 0;
+}
+
+.header-bottom {
+    padding: 15px 0;
+}
+
+.header-bottom-menu {
+    display: flex;
+    justify-content: center; /* Căn giữa menu chính */
+    list-style: none;
+    gap: 40px;
+}
+
+.header-bottom-menu li a {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.header-bottom-menu li a:hover {
+    color: #e74c3c; /* Màu nhấn khi hover vào menu chính */
+}

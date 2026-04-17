@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách phòng trọ - Trọ Sinh Viên Huế</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/rooms.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <section class="container search-filter-wrap">
+        <form class="filter-form" action="#" method="GET">
+            <div class="filter-group keyword-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm theo tên đường, khu vực...">
+            </div>
+
+            <div class="filter-group select-filter">
+                <select name="price">
+                    <option value="">-- Mức giá --</option>
+                    <option value="under-1m">Dưới 1 triệu</option>
+                    <option value="1m-2m">1 triệu - 2 triệu</option>
+                    <option value="2m-3m">2 triệu - 3 triệu</option>
+                    <option value="over-3m">Trên 3 triệu</option>
+                </select>
+            </div>
+
+            <div class="filter-group select-filter">
+                <select name="area">
+                    <option value="">-- Diện tích --</option>
+                    <option value="under-15">Dưới 15 m²</option>
+                    <option value="15-25">15 m² - 25 m²</option>
+                    <option value="over-25">Trên 25 m²</option>
+                </select>
+            </div>
+
+            <div class="filter-group custom-dropdown">
+                <div class="dropdown-header" id="amenitiesBtn">
+                    <span><i class="fa-solid fa-list-check"></i> Chọn tiện ích</span>
+                    <i class="fa-solid fa-chevron-down drop-icon"></i>
+                </div>
+                <div class="dropdown-content" id="amenitiesContent">
+                    <label><input type="checkbox" name="amenity" value="aircon"> Điều hòa</label>
+                    <label><input type="checkbox" name="amenity" value="parking"> Bãi gửi xe</label>
+                    <label><input type="checkbox" name="amenity" value="fridge"> Tủ lạnh</label>
+                    <label><input type="checkbox" name="amenity" value="washing-machine"> Máy giặt</label>
+                    <label><input type="checkbox" name="amenity" value="wifi"> Wifi tốc độ cao</label>
+                    <label><input type="checkbox" name="amenity" value="no-curfew"> Giờ giấc tự do</label>
+                    <label><input type="checkbox" name="amenity" value="security"> Camera an ninh</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-search">Lọc kết quả</button>
+
+
+        </form>
+    </section>
+
+    <section class="container room-list-wrap">
+        <h2 class="section-title">Danh sách phòng đang cho thuê</h2>
+
+        <div class="room-grid">
+            <div class="room-card">
+                <img src="./images/mango.png" alt="Phòng trọ 1">
+                <div class="room-info">
+                    <h3 class="room-title">Phòng trọ khép kín gần ĐH Khoa Học</h3>
+                    <p class="room-address"><i class="fa-solid fa-location-dot"></i> Đường Nguyễn Huệ, TP. Huế</p>
+                    <div class="room-details">
+                        <span><i class="fa-solid fa-ruler-combined"></i> 25 m²</span>
+                        <span class="room-price">1.500.000 đ/tháng</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <img src="./images/Apple.png" alt="Phòng trọ 2">
+                <div class="room-info">
+                    <h3 class="room-title">Trọ chung chủ an ninh tốt, KQH Kiểm Huệ</h3>
+                    <p class="room-address"><i class="fa-solid fa-location-dot"></i> Khu quy hoạch Kiểm Huệ</p>
+                    <div class="room-details">
+                        <span><i class="fa-solid fa-ruler-combined"></i> 20 m²</span>
+                        <span class="room-price">1.200.000 đ/tháng</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <img src="./images/Apple.png" alt="Phòng trọ 3">
+                <div class="room-info">
+                    <h3 class="room-title">Căn hộ mini Full nội thất trung tâm</h3>
+                    <p class="room-address"><i class="fa-solid fa-location-dot"></i> Đường Bà Triệu, TP. Huế</p>
+                    <div class="room-details">
+                        <span><i class="fa-solid fa-ruler-combined"></i> 35 m²</span>
+                        <span class="room-price">3.000.000 đ/tháng</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <img src="./images/coconut.png" alt="Phòng trọ 4">
+                <div class="room-info">
+                    <h3 class="room-title">Phòng trọ giá rẻ cho sinh viên năm nhất</h3>
+                    <p class="room-address"><i class="fa-solid fa-location-dot"></i> Đường Hùng Vương, TP. Huế</p>
+                    <div class="room-details">
+                        <span><i class="fa-solid fa-ruler-combined"></i> 18 m²</span>
+                        <span class="room-price">1.000.000 đ/tháng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>
